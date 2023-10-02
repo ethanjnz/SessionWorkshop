@@ -1,0 +1,54 @@
+@{
+    string? user = Context.Session.GetString("Name");
+    int? Num = Context.Session.GetInt32("Num");
+}
+
+<div class="d-flex justify-content-between align-items-center border-bottom">
+    <h1>Welcome @user</h1>
+    <form asp-action="Clear" asp-controller="Home" method="post">
+        <button class="btn btn-danger">Logout</button>
+    </form>
+
+</div>
+
+<div class="card w-25 mx-auto m-5">
+    <div class="card-title text-center fs-1 ">@Num</div>
+    <div class="card-body">
+        <div class="row mb-2">
+            <div class="col">
+                <form asp-action="Math" asp-controller="Home" method="post">
+                    <button class="w-100 btn btn-warning">+1</button>
+                    <input type="hidden" value="add" name="math">
+                </form>
+
+            </div>
+            <div class="col">
+                <form asp-action="Math" asp-controller="Home" method="post">
+                    <input type="hidden" value="subtract" name="math">
+                    <button class="w-100 btn btn-primary">-1</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form asp-action="Math" asp-controller="Home" method="post">
+                    <input type="hidden" value="multiply" name="math">
+                    <button class="w-100 btn btn-danger">x 2</button>
+                </form>
+            </div>
+            <div class="col">
+                <form asp-action="Math" asp-controller="Home" method="post">
+                    <input type="hidden" value="random" name="math">
+                    <button class="w-100 btn btn-success">+ Random</button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+</div>
